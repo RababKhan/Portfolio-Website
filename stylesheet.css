@@ -1,3 +1,134 @@
+/* ====== Header base ====== */
+.site-header{
+  position: sticky; top: 0; z-index: 1000;
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px 24px;
+  background: #f3f3f3;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.site-brand{ font-size: 22px; font-weight: 600; color: #222; white-space: nowrap; }
+
+.site-nav{
+  margin-left: auto; display: flex; align-items: center; gap: 22px;
+}
+.site-nav a{
+  text-decoration: none; color: #333; font-weight: 500;
+}
+.site-nav a:hover{ color:#0a66c2; }
+
+/* Buttons (icons) */
+.icon-btn{
+  background: transparent; border: 0; cursor: pointer; padding: 4px;
+  color:#333; line-height: 0; display: inline-flex; align-items: center; justify-content: center;
+}
+.icon-btn:hover{ color:#0a66c2; }
+
+/* Make your PNG icon readable in dark mode */
+#theme-icon{ transition: filter .25s ease; }
+body.dark-mode #theme-icon{ filter: invert(1); }
+
+/* Mobile (hamburger without JS) */
+.nav-toggle{ display:none; }
+.nav-burger{
+  margin-left: auto; display:none; cursor:pointer; font-size: 20px; user-select:none;
+  padding: 4px 8px; border-radius: 6px;
+}
+@media (max-width: 720px){
+  .nav-burger{ display:block; }
+  .site-nav{
+    position: absolute; right: 12px; top: 56px;
+    display: none; flex-direction: column; gap: 12px;
+    background: #f3f3f3; padding: 12px; border: 1px solid #e6e6e6;
+    border-radius: 10px; box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  }
+  .nav-toggle:checked + .nav-burger + .site-nav{ display:flex; }
+}
+
+/* ====== Theme (light / dark) ====== */
+/* Light (default) */
+:root{
+  --bg: #ffffff;
+  --fg: #222;
+  --header-bg: #f3f3f3;
+  --header-border: #e6e6e6;
+  --link: #333;
+  --link-hover: #0a66c2;
+}
+
+body{ background: var(--bg); color: var(--fg); }
+
+/* Keep existing colors working: override header if using variables */
+.site-header{ background: var(--header-bg); border-bottom-color: var(--header-border); }
+.site-nav a{ color: var(--link); }
+.site-nav a:hover{ color: var(--link-hover); }
+
+/* Dark */
+body.dark-mode{
+  --bg: #111213;
+  --fg: #f4f4f4;
+  --header-bg: #1b1c1d;
+  --header-border: #2a2b2c;
+  --link: #f0f0f0;
+  --link-hover: #8bc4ff;
+}
+
+/* Optional: make SVG icons inherit color nicely */
+.icon-btn svg{ fill: currentColor; }
+/* === THEME VARIABLE FIXES (put at END of stylesheet.css) === */
+
+/* Light defaults */
+:root{
+  --bg: #ffffff;
+  --fg: #222;
+  --header-bg: #f3f3f3;
+  --header-fg: #222;        /* <-- header text/icons color */
+  --header-border: #e6e6e6;
+  --link: #333;
+  --link-hover: #0a66c2;
+}
+
+/* Dark mode values */
+body.dark-mode{
+  --bg: #111213;
+  --fg: #f4f4f4;
+  --header-bg: #1b1c1d;
+  --header-fg: #f4f4f4;     /* <-- light text/icons on dark header */
+  --header-border: #2a2b2c;
+  --link: #f0f0f0;
+  --link-hover: #8bc4ff;
+}
+
+/* Make the whole header use header foreground color */
+.site-header{
+  background: var(--header-bg) !important;
+  border-bottom-color: var(--header-border) !important;
+  color: var(--header-fg) !important;   /* children inherit this */
+}
+
+/* Ensure brand, links, and icons follow the theme instead of fixed colors */
+.site-brand{ color: inherit !important; }
+.site-header .icon-btn{ color: inherit !important; }      /* overrides any .icon-btn { color:#333 } */
+.site-nav a{
+  color: var(--link) !important;
+  text-decoration: none;
+}
+.site-nav a:hover{ color: var(--link-hover) !important; }
+
+/* SVGs take current text color; your search SVG already does fill:currentColor */
+.icon-btn svg{ fill: currentColor; }
+
+/* Your PNG theme icon: invert in dark for visibility (keep if you use a single PNG) */
+#theme-icon{ transition: filter .25s ease; }
+body.dark-mode #theme-icon{ filter: invert(1); }
+
+
+
+
+
+
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -140,3 +271,131 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+/* smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* prevent sticky header from covering the target */
+:root { --header-h: 64px; }           /* adjust to your header height */
+[id] { scroll-margin-top: var(--header-h); }
+/* ---------- Theme variables for scrollbars ---------- */
+:root{
+  --scroll-thumb: #bdbdbd;      /* light mode thumb */
+  --scroll-track: transparent;  /* light mode track */
+}
+body.dark-mode{
+  --scroll-thumb: #5a5a5a;      /* dark mode thumb */
+  --scroll-track: transparent;  /* dark mode track */
+}
+
+/* ---------- Global scrollbar (WebKit browsers) ---------- */
+*::-webkit-scrollbar{
+  width: 8px;      /* thinner bar */
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb{
+  background-color: var(--scroll-thumb);
+  border-radius: 8px;
+  border: 2px solid var(--scroll-track);   /* creates a slimmer look */
+}
+*::-webkit-scrollbar-thumb:hover{
+  background-color: color-mix(in srgb, var(--scroll-thumb) 85%, black);
+}
+*::-webkit-scrollbar-track{
+  background: var(--scroll-track);
+}
+
+/* ---------- Firefox ---------- */
+*{
+  scrollbar-width: thin;                         /* thin */
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track); /* thumb track */
+}
+
+/* Optional: make scrollbars even lighter on specific boxes */
+.news-scroll::-webkit-scrollbar-thumb{ opacity: .85; }
+.news-scroll{ scrollbar-color: var(--scroll-thumb) var(--scroll-track); }
+
+
+
+/* ==== Dark-mode contrast fixes for existing inline colors ==== */
+/* Paper titles (blue-ish) */
+body.dark-mode .papertitle { color: #b9c8ff !important; }   /* soft light-blue */
+
+/* Headings that used inline green (#236e23) */
+body.dark-mode h2, 
+body.dark-mode h3 { color: #8be28b !important; }            /* readable green */
+
+/* Any element colored exactly #236e23 (extra catch-all) */
+body.dark-mode [style*="#236e23"] { color: #8be28b !important; }
+
+/* Any element colored exactly #24238c (deep indigo) */
+body.dark-mode [style*="#24238c"] { color: #b9c8ff !important; }
+
+/* Status lines that use crimson */
+body.dark-mode [style*="crimson"] { color: #ff7a7a !important; }
+
+/* Links: ensure good contrast in dark mode (if not set already) */
+body.dark-mode a { color: #9ecaff; }
+body.dark-mode a:hover { color: #cfe4ff; }
+
+/* remove the default gap around the page */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* (optional) ensure header truly hugs the top edge */
+.site-header {
+  position: sticky;   /* or fixed, if you prefer */
+  top: 0;
+  width: 100%;
+}
+
+/* 1) Never overflow horizontally */
+html, body { margin: 0; padding: 0; overflow-x: hidden; }
+
+/* 2) Header sizing: don’t use 100vw; include padding in width */
+.site-header { width: 100%; box-sizing: border-box; }
+
+/* 3) Nav stays inside the header box */
+.site-nav { max-width: 100%; }
+
+/* 4) If you used 100vw anywhere, neutralize it */
+*[style*="100vw"], .full-viewport { width: 100% !important; }
+
+/* 5) Search modal/backdrop – ensure they don’t push width */
+#search-modal { inset: 0; }
+.search-panel { max-width: min(800px, 92vw); }
+
+.page-title {
+  position: sticky;
+  top: calc(var(--header-h, 64px) + 10px);  /* just below header */
+  background: var(--bg);
+  z-index: 800;
+  padding: 8px 0;
+}
+
+.page-title {
+  position: sticky;
+  top: calc(var(--header-h, 64px) + 10px);  /* just below header */
+  background: var(--bg);
+  z-index: 800;
+  padding: 8px 0;
+}
+
+/* === Fixed header === */
+:root { --header-h: 64px; }     /* fallback height; JS below will keep this in sync */
+
+.site-header{
+  position: fixed;               /* was: sticky */
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;        /* prevents horizontal scroll from padding */
+}
+
+/* Give the document space so content isn't hidden under the fixed header */
+body { padding-top: var(--header-h); }
+
+/* Anchor targets (e.g., #publications) won’t be covered by the fixed bar */
+[id] { scroll-margin-top: var(--header-h); }
+

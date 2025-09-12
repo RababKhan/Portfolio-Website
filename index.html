@@ -12,8 +12,55 @@
     
   </head>
 
-  <!-- Intro Starts -->
-  <body>
+<!-- Site Header -->
+<header class="site-header">
+  <div class="site-brand">Rabab Khan Rongon</div>
+
+  <!-- Mobile toggle (optional, no JS) -->
+  <input id="nav-toggle" type="checkbox" class="nav-toggle" aria-label="Toggle navigation" />
+  <label for="nav-toggle" class="nav-burger" aria-hidden="true">☰</label>
+
+  <nav class="site-nav">
+    <a href="#home">Home</a>
+     <a href="#publications">Research</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    
+
+    <!-- THEME TOGGLE (uses your custom PNG icon) -->
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark/white mode" title="Theme">
+      <img id="theme-icon" src="images/mode.png" alt="Toggle theme" width="20" height="20" />
+    </button>
+  </nav>
+</header>
+<script>
+  // Theme toggle with persistence
+  (function () {
+    const btn = document.getElementById("theme-toggle");
+
+    // Load saved preference (if any)
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") document.body.classList.add("dark-mode");
+
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem(
+        "theme",
+        document.body.classList.contains("dark-mode") ? "dark" : "light"
+      );
+    });
+  })();
+
+  // (Optional) Hook up your search button to open a modal or jump to a #search section
+  document.getElementById("search-btn").addEventListener("click", () => {
+    // TODO: implement search UI here
+    // Example: location.href = "#search";
+    console.log("Search clicked");
+  });
+</script>
+<!-- cLose Site Header -->
+
+<section id="home">  
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -73,17 +120,17 @@ Beyond academics and research, I love engaging in collaborative projects, mentor
 
             <p><b>August, 2025:</b><br>
             Presented my article <b><i>Evaluating the Accessibility of Online Pharmacies' Mobile Applications in Bangladesh using Heuristic and Semiotic Analysis</i></b> at
-            <a href="https://qpain.org/">IEEE  International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN)</a>,BAUST, Saidpur.
+            <a href="https://qpain.org/">IEEE  International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN)</a> (Saidpur, Bangladesh)
           </p>
 
           <p><b>July, 2025:</b><br>
-            Landed my second full-time job offer! I will be joining as a Applied AI Test Engineer - III in
-            <a href="https://www.turing.com/">Turing AI</a>.
+            Landed my second full-time job offer! I will be joining as a <b><i>Applied AI Test Engineer - III</i></b> in
+            <a href="https://www.turing.com/">Turing AI</a>. I will be working remotly from Bangladesh.
           </p>
 
           <p><b>February, 2025:</b><br>
             Presented my article <b><i>Analyzing Risk Level from RoI and VoI for Robust Data Privacy using Fuzzy Inference System</i></b> at
-            <a href="https://aiubicrest.com/">2025 4th International Conference on Robotics, Electrical and Signal Processing Techniques (ICREST)</a>, AIUB, Dhaka.
+            <a href="https://aiubicrest.com/">2025 4th International Conference on Robotics, Electrical and Signal Processing Techniques (ICREST)</a> (Dhaka, Bangladesh)
           </p>
 
         </div>
@@ -93,9 +140,11 @@ Beyond academics and research, I love engaging in collaborative projects, mentor
     </tr>
   </tbody>
 </table>
+</section>
 <!-- End News and Updates -->
             
-<!-- Research Starts           -->
+<!-- Research Starts-->
+ <section id="publications">
 <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:20px auto;">
   <tbody>
     <tr>
@@ -104,12 +153,56 @@ Beyond academics and research, I love engaging in collaborative projects, mentor
                 <p>
                   My research interests include leveraging <b>HCI, AI </b> and <b>Neural Networking </b> techniques to solve real-world problems. Looking forward, I am also open to study more human-centric problems from <b>Human-AI Interaction, AI for Society</b> and <b> Healthcare </b> domains.
                 </p>
-              </td>
+              <!-- </td>
             </tr>
-          </tbody></table>
+          </tbody></table> -->
 
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  
+<table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
   <tr>
+  <td>
+    <h3 style="color: #236e23;">Graduate Thesis</h3>
+  </td>
+</tr>
+<!-- Article No #1 -->
+    <tr onmouseout="bolt3d_stop()" onmouseover="bolt3d_start()">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='bolt3d_image'><video  width=100% height=100% muted autoplay loop>
+          <source src="images/4UG.jpg" type="image/png">
+          Your browser does not support the video tag.
+
+          </video></div>
+          <img src='images/4UG.jpg' width="160">
+        </div>
+
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        
+          <span class="papertitle" style="color: #24238c;">Improving Classification Performance by Combining
+ Feature Vectors with a Boosting Approach for Brain
+ Computer Interface</span>
+        </a>
+        <br>
+        <strong>Rabab Khan Rongon</strong> <br>
+                <p style="color:crimson"><b><i>Status: Ongoing</i></b></p>
+
+        <!-- <p style="color: #236e23;"><b><i>Undergraduate Thesis</i></b></p> -->
+
+        <!-- <a href="data/Implementation of Energy Efficiency Cloud Data Center.pdf">thesis paper</a> <br> -->
+        <p>I propose a deep learning–based boosting framework that combines spatial and spectral EEG feature vectors across sub-bands and channels to enhance robustness and improve classification performance in multichannel Brain-Computer Interface applications.</p>
+        <strong style="color: #24238c;">Supervisor(s):</strong><a href="https://mist.ac.bd/department/cse/facultyMembers/lt_col_muhammad_nazrul_islam_phd-47"> Lt Col Prof Dr. Muhammad Nazrul Islam (MIST)</a> 
+      </td>
+    </tr>
+
+
+
+
+
+
+
+
+          <tr>
   <td>
     <h3 style="color: #236e23;">Undergraduate Thesis</h3>
   </td>
@@ -125,16 +218,7 @@ Beyond academics and research, I love engaging in collaborative projects, mentor
           </video></div>
           <img src='images/1UG.gif' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
 
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
@@ -142,7 +226,7 @@ Beyond academics and research, I love engaging in collaborative projects, mentor
 Simulator for National Data Center of Bangladesh</span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong> <br>
+        <strong>Rabab Khan Rongon</strong> <br>
         <!-- <p style="color: #236e23;"><b><i>Undergraduate Thesis</i></b></p> -->
 
         <a href="data/Implementation of Energy Efficiency Cloud Data Center.pdf">thesis paper</a> <br>
@@ -171,23 +255,14 @@ Simulator for National Data Center of Bangladesh</span>
           </video></div>
           <img src='images/2UG.gif' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
+        
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
           <span class="papertitle" style="color: #24238c;">An energy-efficient cloud data center architectural model for the national data center of Bangladesh</span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong>, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>  <br>
+        <strong>Rabab Khan Rongon</strong>, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>  <br>
         <p style="color: #236e23;"><b><i>Journal of Discrete Mathematical Sciences and Cryptography (Scopus, WoS || Cite Score: 3.1)</i></b></p>
 
         <a href="https://doi.org/10.47974/JDMSC-1916">article</a> <br>
@@ -199,7 +274,7 @@ Simulator for National Data Center of Bangladesh</span>
 
   <span>
 
-  <!-- Article No 2.1 -->
+  <!-- Article No 3 -->
 
   <span>
     <tr onmouseout="bolt3d_stop()" onmouseover="bolt3d_start()">
@@ -212,23 +287,14 @@ Simulator for National Data Center of Bangladesh</span>
           </video></div>
           <img src='images/UG8.gif' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
+        
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
           <span class="papertitle" style="color: #24238c;">Enhancing Maritime Fuel-use Efficiency and Reduction of Carbon Emission: An Experient with Deep Reinforcement Learning Agent</span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong>, <a href="https://scholar.google.com/citations?user=gXpfPFIAAAAJ&hl=en"> M. Akhteruzzaman</a>, Sadab Khan Prangon  <br>
+        <strong>Rabab Khan Rongon</strong>, <a href="https://scholar.google.com/citations?user=gXpfPFIAAAAJ&hl=en"> M. Akhteruzzaman</a>, Sadab Khan Prangon  <br>
         <p style="color: #236e23;"><b><i>Gazi University Journal of Science (Scopus, WoS)</i></b></p>
 
         <!-- <a href="https://doi.org/10.47974/JDMSC-1916">article</a> <br> -->
@@ -239,9 +305,72 @@ Simulator for National Data Center of Bangladesh</span>
       </td>
     </tr>
 
+<!-- Article No 4 -->
+
+  <span>
+    <tr onmouseout="bolt3d_stop()" onmouseover="bolt3d_start()">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='bolt3d_image'><video  width=100% height=100% muted autoplay loop>
+          <source src="images/3UG.gif" type="image/png">
+          Your browser does not support the video tag.
+
+          </video></div>
+          <img src='images/3UG.gif' width="160">
+        </div>
+        
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        
+          <span class="papertitle" style="color: #24238c;">Investigating tRNA-Derived Small RNA Expression Patterns and Bioinformatics Analysis in Epicardial Fat of Atrial Fibrillation Patients</span>
+                </a>
+        <br>
+        Moriom Akhter Eti, <strong>Rabab Khan Rongon</strong></p>
+        <p style="color: #236e23;"><b><i>International Journal for Research in Applied Science and Engineering Technology</i></b></p>
+
+        <a href="https://doi.org/10.22214/ijraset.2024.61416">article</a> <br>
+
+  <p style="text-justify: auto;">Identified differential tsRNA expression networks in epicardial adipose tissue using RNA sequencing and bioinformatics, uncovering potential regulatory mechanisms underlying atrial fibrillation.
+</p>
+      </td>
+    </tr>
+
   <span>
 
+  <br>
+  <tr>
+  <td>
+    <h3 style="color: #236e23;">Book Chapter</h3>
+  </td>
+</tr>
+    <!-- Article No #6 -->
+        <tr onmouseout="bolt3d_stop()" onmouseover="bolt3d_start()">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='bolt3d_image'><video  width=100% height=100% muted autoplay loop>
+          <source src="images/UG4.gif" type="image/png">
+          Your browser does not support the video tag.
 
+          </video></div>
+          <img src='images/UG4.gif' width="160">
+        </div>
+              </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        
+          <span class="papertitle" style="color: #24238c;">An Attention-Driven Deep Learning Model for Predicting Human Life Expectancy</span>
+        </a>
+        <br>
+        Aminul Islam, M. Shahriar Zaman, <strong>Rabab Khan Rongon</strong>, Sheikh Tanjil Sharif,Hosney Jahan  <br>
+        <p style="color: #236e23;"><b><i>3rd International Conference on Big Data, IoT and Machine Learning (BIM 2025)</i></b></p>
+        <p style="color:crimson"><b><i>Status: Accepted as a chapter in a Book Series of Taylor & Francis </i></b></p>
+
+        <!-- <a href="https://doi.org/10.47974/JDMSC-1916">article</a>
+        / -->
+        <!-- <a href="https://drive.google.com/file/d/1-4F0LZsiv-B2xLIBK8O8jsvjAGZ_fPMc/view?usp=sharing">poster</a>    -->
+        <p>This study develops an attention-based deep learning system using WHO and World Bank data to forecast human life expectancy, where Transformer models outperform traditional approaches and provide a scalable, interpretable tool for evidence-based policymaking.
+        </p>
+      </td>
+    </tr>
   <tr>
   <td>
     <h3 style="color: #236e23;">Conference Article</h3>
@@ -259,16 +388,7 @@ Simulator for National Data Center of Bangladesh</span>
           </video></div>
           <img src='images/UG2.jpg' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
+        
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
@@ -276,7 +396,7 @@ Simulator for National Data Center of Bangladesh</span>
 being sustainable through green cloud computing methodology</span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong>, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>  <br>
+        <strong>Rabab Khan Rongon</strong>, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>  <br>
         <p style="color: #236e23;"><b><i>4th International Conference on Sustainable Computing and Management (SUSCOM-2022).</i></b></p>
 
         <a href="https://www.researchgate.net/publication/372394443_Obstacle_to_implement_sustainable_computing_in_Bangladesh_and_approach_to_being_sustainable_through_green_cloud_computing_methodology">article</a>
@@ -303,23 +423,14 @@ being sustainable through green cloud computing methodology</span>
           </video></div>
           <img src='images/fuzzy.gif' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
+        
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
           <span class="papertitle" style="color: #24238c;">Analyzing Risk Level from RoI and VoI for Robust Data Privacy using Fuzzy Inference System</span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong>, <a href="https://scholar.google.com/citations?user=gXpfPFIAAAAJ&hl=en">M. Akhteruzzaman</a>, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>, Sheikh Tanjil Sharif
+        <strong>Rabab Khan Rongon</strong>, <a href="https://scholar.google.com/citations?user=gXpfPFIAAAAJ&hl=en">M. Akhteruzzaman</a>, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>, Sheikh Tanjil Sharif
         <p style="color: #236e23;"><b><i>IEEE 4th International Conference on Robotics, Electrical and Signal Processing Techniques, 2025</i></b></p>
         
         <a href="https://doi.org/10.1109/ICREST63960.2025.10914468">article</a>
@@ -344,24 +455,14 @@ being sustainable through green cloud computing methodology</span>
           </video></div>
           <img src='images/UG3.gif' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
-      </td>
+              </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
           <span class="papertitle" style="color: #24238c;">Evaluating the Accessibility of Online Pharmacies' 
 Mobile Applications in Bangladesh using Heuristic and Semiotic Analysis</span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong>, Sadab Khan Prangon, Sheikh Tanjil Sharif, Anika Ashraf, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>  <br>
+        <strong>Rabab Khan Rongon</strong>, Sadab Khan Prangon, Sheikh Tanjil Sharif, Anika Ashraf, <a href="https://cse.iubat.edu/krishna-das/"> Krishna Das</a>  <br>
         <p style="color: #236e23;"><b><i>IEEE International Conference on Quantum Photonics, Artificial Intelligence, and Networking, 2025</i></b></p>
         <p style="color:crimson"><b><i>Status: In Press</i></b></p>
 
@@ -372,46 +473,6 @@ Mobile Applications in Bangladesh using Heuristic and Semiotic Analysis</span>
         </p>
       </td>
     </tr>
-
-    <!-- Article No #6 -->
-        <tr onmouseout="bolt3d_stop()" onmouseover="bolt3d_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='bolt3d_image'><video  width=100% height=100% muted autoplay loop>
-          <source src="images/UG4.gif" type="image/png">
-          Your browser does not support the video tag.
-
-          </video></div>
-          <img src='images/UG4.gif' width="160">
-        </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        
-          <span class="papertitle" style="color: #24238c;">An Attention-Driven Deep Learning Model for Predicting Human Life Expectancy</span>
-        </a>
-        <br>
-        Aminul Islam, M. Shahriar Zaman, <strong>Rabab Khan Ronogn</strong>, Sheikh Tanjil Sharif,Hosney Jahan  <br>
-        <p style="color: #236e23;"><b><i>3rd International Conference on Big Data, IoT and Machine Learning (BIM 2025)</i></b></p>
-        <p style="color:crimson"><b><i>Status: Accepted as a chapter in a Book Series of Taylor & Francis </i></b></p>
-
-        <!-- <a href="https://doi.org/10.47974/JDMSC-1916">article</a>
-        / -->
-        <!-- <a href="https://drive.google.com/file/d/1-4F0LZsiv-B2xLIBK8O8jsvjAGZ_fPMc/view?usp=sharing">poster</a>    -->
-        <p>This study develops an attention-based deep learning system using WHO and World Bank data to forecast human life expectancy, where Transformer models outperform traditional approaches and provide a scalable, interpretable tool for evidence-based policymaking.
-        </p>
-      </td>
-    </tr>
-
 <!-- Article No #7 -->
         <tr onmouseout="bolt3d_stop()" onmouseover="bolt3d_start()">
       <td style="padding:16px;width:20%;vertical-align:middle">
@@ -423,23 +484,14 @@ Mobile Applications in Bangladesh using Heuristic and Semiotic Analysis</span>
           </video></div>
           <img src='images/UG5.png' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
+        
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
           <span class="papertitle" style="color: #24238c;">Proposing and Evaluating a new CAPTCHA Systems for Improving Usability and Accessibility </span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong>, Anika Ashraf, Sheikh Tanjil Sharif, Md. Nazrul Islam<br>
+        <strong>Rabab Khan Rongon</strong>, Anika Ashraf, Sheikh Tanjil Sharif, Md. Nazrul Islam<br>
         <p style="color: #236e23;"><b><i>IEEE 2nd International Conference on Computing, Applications and Systems (COMPAS 2025)</i></b></p>
         <p style="color:crimson"><b><i>Status: Under Review</i></b></p>
 
@@ -461,23 +513,14 @@ Mobile Applications in Bangladesh using Heuristic and Semiotic Analysis</span>
           </video></div>
           <img src='images/UG6.jpg' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
+        
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
           <span class="papertitle" style="color: #24238c;">Deep Learning-Based Recognition of Bangla Sign Language Gestures with CNN, VGG16, and MobileNet </span>
         </a>
         <br>
-        <strong>Rabab Khan Ronogn</strong>, M. Shahriar Zaman, Sheikh Tanjil Sharif, Sadab Khan Prangon, Krishna Das<br>
+        <strong>Rabab Khan Rongon</strong>, M. Shahriar Zaman, Sheikh Tanjil Sharif, Sadab Khan Prangon, Krishna Das<br>
         <p style="color: #236e23;"><b><i>IEEE 2nd International Conference on Computing, Applications and Systems (COMPAS 2025)</i></b></p>
         <p style="color:crimson"><b><i>Status: Under Review</i></b></p>
 
@@ -500,23 +543,14 @@ Mobile Applications in Bangladesh using Heuristic and Semiotic Analysis</span>
           </video></div>
           <img src='images/UG7.png' width="160">
         </div>
-        <script type="text/javascript">
-          function bolt3d_start() {
-            document.getElementById('bolt3d_image').style.opacity = "1";
-          }
-
-          function bolt3d_stop() {
-            document.getElementById('bolt3d_image').style.opacity = "0";
-          }
-          bolt3d_stop()
-        </script>
+        
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         
           <span class="papertitle" style="color: #24238c;">A Real-Time Automated Traffic Violations Detection System for Motorcycles Using YOLOR </span>
         </a>
         <br>
-        Sadab Khan Prangon, <strong>Rabab Khan Ronogn</strong>, Krishna Das<br>
+        Sadab Khan Prangon, <strong>Rabab Khan Rongon</strong>, Krishna Das<br>
         <p style="color: #236e23;"><b><i>IEEE 2nd International Conference on Computing, Applications and Systems (COMPAS 2025)</i></b></p>
         <p style="color:crimson"><b><i>Status: Under Review</i></b></p>
 
@@ -529,11 +563,12 @@ Mobile Applications in Bangladesh using Heuristic and Semiotic Analysis</span>
 
           </tbody>
         </table>
+</section>
 
         <!-- Research End -->
 
 <!-- Education Section -->
-<section style="max-width: 900px; margin: 40px auto; padding: 20px;">
+<section style="max-width: 900px; margin: 40px auto; padding: 20px;" id="education">
   <h2 style="text-align: center; margin-bottom: 20px;">Academic Credentials</h2>
   <p style="text-align: center; margin-bottom: 20px;">Find below a brief overview of my academic journey (so far).</p>
 
@@ -559,17 +594,18 @@ System Design, Theory of Computation, Computer Architecture, Operating Systems, 
   </div>
   </div>
 </section>
+
 <!-- End Education Section -->
 
 <!-- Experience Section -->
-<section style="max-width: 900px; margin: 40px auto; padding: 20px;">
+<section style="max-width: 900px; margin: 40px auto; padding: 20px;" id="experience">
   <h2 style="text-align: center; margin-bottom: 20px;">Professional Experience</h2>
   <p style="text-align: center; margin-bottom: 20px;">Here are the detailed explanation of my engineering experiences.</p>
 <!-- Experience no #1 -->
   <div>
     <h3 style="color: #24238c;">Applied AI Test Engineer - III</h3>
     <p>
-    July, 2025-Present <br>
+    July, 2025 - Present <br>
     <b>Turing AI Inc.</b> <br>
     Technology park in San Diego, California, USA <br>
     Work Mode: Remote <br>
@@ -614,7 +650,7 @@ System Design, Theory of Computation, Computer Architecture, Operating Systems, 
   <div>
     <h3 style="color: #24238c;">Researcher</h3>
     <p>
-    April, 2024-Present <br>
+    April, 2024 - Present <br>
     <b>Quantum Robotics and Automation Research Group</b> <br>
     Dhaka, Bangladesh <br>
     Work Mode: Hybrid <br>
@@ -667,7 +703,23 @@ System Design, Theory of Computation, Computer Architecture, Operating Systems, 
 <section style="max-width: 900px; margin: 40px auto; padding: 20px;">
   <h2 style="text-align: center; margin-bottom: 20px;">Honors and Awards</h2>
   <p style="text-align: center; margin-bottom: 20px;">I have been blessed with some accolades time to time, thanks to the amazing mentors and peers from whom I learnt a lot.</p>
-<!-- Experience no #1 -->
+<!-- Awards no #1 -->
+  <div>
+    <h3 style="color: #24238c;">Research Publication Grant – Awarded by Miyan Research Institute,IUBAT (2024)</h3>
+    <p>
+        Received $300 grant to support publication of undergraduate thesis in a ISI journal.
+    </p>
+  </div>
+
+  <!-- Awards no #2 -->
+  <div>
+    <h3 style="color: #24238c;">Conference APC Grant — IUBAT (2022)</h3>
+    <p>
+      Funded article processing charges for SUSCOM 2022 paper entitled Obstacle to implement sustainable computing in Bangladesh and approach to being sustainable through green cloud computing methodology.
+    </p>
+  </div>
+
+  <!-- Awards no #3 -->
   <div>
     <h3 style="color: #24238c;">Professor Mahmuda Khanam Scholarship: For Academic performance at IUBAT (2021)</h3>
     <p>
@@ -676,34 +728,28 @@ System Design, Theory of Computation, Computer Architecture, Operating Systems, 
 
   </div>
 
-<!-- Experience no #2 -->
+<!-- Awards no #4 -->
 <div>
     <h3 style="color: #24238c;">RL (Bob) Southern Scholarship: For Academic performance at IUBAT (2020)</h3>
     <p>
       This Scholarship amount is Tk 8000 for each student for one semester . Total two students is awarded with the scholarship in every semester.
     </p>
-
   </div>
-<!-- Experience no #3 -->
-  <div>
-    <h3 style="color: #24238c;">University Stipend Scholarship for four years (2019 - 2023)</h3>
-    <p>
 
-    </p>
-
-  </div>
 </section>
 <!-- End Awards Section -->
+
+
           
-				<!-- Footer Start -->
+<!-- Footer Start -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>  
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">
                 <br>
-                <p style="text-align:right;font-size:small;">
-                  I found this cool template builds the webpages of some even cooler scientists I know. Get the source code <a href="https://github.com/RababKhan/Portfolio-Website/">here</a>
+                <p style="text-align:right;font-size:small;text-align: center;" >
+                   Get the source code of the webpage <a href="https://github.com/RababKhan/Portfolio-Website/">here</a>
                       </p>
               </td>
             </tr>
